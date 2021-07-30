@@ -329,7 +329,7 @@ func enroll(w http.ResponseWriter, r *http.Request) {
 		cert := r.TLS.PeerCertificates[0]
 
 		// Compare Subject fields.
-		if !reflect.DeepEqual(crt.Subject, csr.Subject){
+                if !reflect.DeepEqual(cert.Subject, csr.Subject){
 			errSubjectChanged.Write(w)
 			return
 		}
